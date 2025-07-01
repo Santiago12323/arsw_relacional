@@ -15,5 +15,18 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  mongo:
+    image: mongo:6
+    container_name: mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: my_mongo_db
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   mysql_data:
+  mongo_data:
+
